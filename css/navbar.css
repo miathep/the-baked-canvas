@@ -1,39 +1,88 @@
 .navbar {
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
     padding: 20px 60px;
 
     background: white;
 
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eeeeee;
+
 }
 
-.logo a {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: #4B2E2E;
+
+.nav-logo img{
+
+    height:80px;
+    width:auto;
+    display:block;
+
 }
 
-.nav-links {
-    display: flex;
-    gap: 35px;
 
-    list-style: none;
+.nav-center{
 
-    margin: 0;
-    padding: 0;
+    flex:1;
+    display:flex;
+    justify-content:center;
+
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #4B2E2E;
-    font-weight: 500;
-    transition: color .2s ease;
+.nav-links{
+
+    display:flex;
+    gap:38px;
+
+    list-style:none;
+
+    margin:0;
+    padding:0;
+
 }
 
-.nav-links a:hover {
-    color: #D89CA4;
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#4B2E2E;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.25s;
+
+}
+
+.nav-links a:hover{
+
+    color:#D89CA4;
+
+}
+
+
+.quote-button{
+
+    background:#D89CA4;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 24px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.quote-button:hover{
+
+    background:#C67C87;
+
 }
