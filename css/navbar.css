@@ -1,34 +1,33 @@
-
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     padding: 20px 60px;
 
     background: #ffffff;
-
     border-bottom: 1px solid #eeeeee;
 
-    font-family: 'Montserrat', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 
 .nav-logo img {
-    height: 80px;
+    height: 75px;
     width: auto;
     display: block;
 }
 
 
 .nav-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+    margin-left: auto;
 }
+
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 38px;
 
     list-style: none;
@@ -38,14 +37,17 @@
 }
 
 .nav-links a {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
 
     color: #4B2E2E;
     text-decoration: none;
 
-    transition: color 0.25s ease;
+    transition: color .25s ease;
 }
 
 .nav-links a:hover {
@@ -53,25 +55,32 @@
 }
 
 
+.nav-button {
+    margin-left: 40px;
+}
+
 .quote-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 8px 30px;
 
     background: #A3B19B;
     color: #ffffff;
 
+    border-radius: 999px;
+
     text-decoration: none;
 
-    padding: 14px 24px;
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-weight: 550;
 
-    border-radius: 50px;
-
-    transition: background-color 0.25s ease, transform 0.2s ease;
+    transition: background-color .25s ease,
+                transform .2s ease;
 }
 
 .quote-button:hover {
