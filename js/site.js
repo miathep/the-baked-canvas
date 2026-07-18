@@ -35,6 +35,7 @@ function initializeMobileMenu() {
     if (!hamburger || !mobileMenu || !overlay) return;
 
     hamburger.addEventListener("click", () => {
+        console.log("Hamburger clicked!");
 
         hamburger.classList.toggle("active");
 
