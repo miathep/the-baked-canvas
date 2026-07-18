@@ -6,7 +6,6 @@
         </a>
     </div>
 
-    <!-- Desktop Navigation -->
     <div class="desktop-nav">
 
         <ul class="nav-links">
@@ -24,7 +23,6 @@
 
     </div>
 
-    <!-- Mobile Hamburger -->
     <button class="hamburger" aria-label="Open Menu">
         <span></span>
         <span></span>
@@ -33,7 +31,6 @@
 
 </nav>
 
-<!-- Mobile Drawer -->
 <div class="mobile-menu">
 
     <ul class="mobile-links">
@@ -52,3 +49,128 @@
 </div>
 
 <div class="menu-overlay"></div>
+
+<div class="quote-overlay">
+
+    <div class="quote-modal">
+
+        <button class="close-quote" aria-label="Close">
+            &times;
+        </button>
+
+        <h2>Request a Quote</h2>
+
+        <p class="quote-subtitle">
+            Let's start planning something sweet!
+        </p>
+
+        <form class="quote-form">
+
+            <label for="name">Name *</label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                required
+            >
+
+            <label for="email">Email *</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                required
+            >
+
+            <label for="phone">Phone *</label>
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+            >
+
+            <label for="order-type">
+                What are you ordering?
+            </label>
+
+            <select
+                id="order-type"
+                name="order-type"
+            >
+                <option value="">
+                    Select an option
+                </option>
+
+                <option>Custom Sugar Cookies</option>
+                <option>Cupcakes</option>
+                <option>Cake</option>
+                <option>Other</option>
+            </select>
+
+            <label>
+                Upload Inspiration Photos
+            </label>
+
+            <label
+                for="quote-images"
+                class="upload-box"
+            >
+
+                <div class="upload-icon">
+                    📷
+                </div>
+
+                <div class="upload-title">
+                    Drag &amp; Drop Photos
+                </div>
+
+                <div class="upload-subtitle">
+                    or click to browse
+                </div>
+
+                <div class="upload-help">
+                    JPG, PNG, HEIC • Up to 10 images
+                </div>
+
+                <div
+                    id="upload-status"
+                    class="upload-status"
+                ></div>
+
+            </label>
+
+            <input
+                type="file"
+                id="quote-images"
+                name="photos"
+                accept="image/*"
+                multiple
+                hidden
+            >
+
+            <label for="description">
+                Short Description
+            </label>
+
+            <textarea
+                id="description"
+                name="description"
+                rows="5"
+                placeholder="Tell me about your event, theme, colors, quantity, or anything you'd like me to know."
+            ></textarea>
+
+            <button
+                type="submit"
+                class="submit-quote"
+            >
+                Request a Quote
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

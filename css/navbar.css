@@ -294,3 +294,156 @@ body.menu-open {
 .hamburger.active span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
 }
+
+
+.quote-overlay {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, .45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity .3s ease;
+
+    z-index: 2000;
+}
+
+.quote-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.quote-modal {
+    position: relative;
+
+    width: min(90%, 650px);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    box-shadow: 0 25px 60px rgba(0,0,0,.18);
+
+    transform: scale(.95);
+
+    transition: transform .3s ease;
+}
+
+.quote-overlay.active .quote-modal {
+    transform: scale(1);
+}
+
+.close-quote {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    border: none;
+    background: none;
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    color: #4B2E2E;
+}
+
+.quote-modal h2 {
+    margin: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+
+    color: #4B2E2E;
+}
+
+.quote-subtitle {
+    margin: 10px 0 35px;
+
+    font-family: "Manrope", sans-serif;
+
+    color: #777;
+}
+
+.quote-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.quote-form label {
+    font-family: "Manrope", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #4B2E2E;
+}
+
+.quote-form input,
+.quote-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url("images/chevron-down.png");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+}
+.quote-form textarea {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+
+    box-sizing: border-box;
+}
+
+.quote-form textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.submit-quote {
+
+    margin-top: 10px;
+
+    border: none;
+    border-radius: 999px;
+
+    padding: 14px;
+
+    background: #A3B19B;
+
+    color: white;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.submit-quote:hover {
+    background: #C67C87;
+}
