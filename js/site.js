@@ -1,36 +1,73 @@
 // Load Google Fonts
-const googleFonts = document.createElement("link");
-googleFonts.rel = "preconnect";
-googleFonts.href = "https://fonts.googleapis.com";
-document.head.appendChild(googleFonts);
-
-const googleFontsStatic = document.createElement("link");
-googleFontsStatic.rel = "preconnect";
-googleFontsStatic.href = "https://fonts.gstatic.com";
-googleFontsStatic.crossOrigin = "anonymous";
-document.head.appendChild(googleFontsStatic);
-
-const fontStylesheet = document.createElement("link");
-fontStylesheet.rel = "stylesheet";
-fontStylesheet.href =
+const fontLink = document.createElement("link");
+fontLink.rel = "stylesheet";
+fontLink.href =
     "https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap";
-document.head.appendChild(fontStylesheet);
+
+document.head.appendChild(fontLink);
 
 // Load Navbar
 async function loadNavbar() {
-    try {
-        const response = await fetch("navbar.html");
 
-        if (!response.ok) {
-            throw new Error(`Failed to load navbar (${response.status})`);
-        }
+    const response = await fetch("navbar.html");
 
-        const html = await response.text();
-        document.getElementById("navbar").innerHTML = html;
-
-    } catch (error) {
-        console.error(error);
+    if (!response.ok) {
+        console.error("Navbar failed to load.");
+        return;
     }
+
+    const html = await response.text();
+
+    document.getElementById("navbar").innerHTML = html;
+
+    initializeMobileMenu();
+
 }
 
 loadNavbar();
+
+function initializeMobileMenu() {
+
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const overlay = document.querySelector(".menu-overlay");
+
+    if (!hamburger || !mobileMenu || !overlay) return;
+
+    hamburger.addEventListener("click", () => {
+
+        hamburger.classList.toggle("active");
+
+        mobileMenu.classList.toggle("active");
+
+        overlay.classList.toggle("active");
+
+        document.body.classList.toggle("menu-open");
+
+    });
+
+    overlay.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", (event) => {
+
+        if (event.key === "Escape") {
+
+            closeMenu();
+
+        }
+
+    });
+
+    function closeMenu() {
+
+        hamburger.classList.remove("active");
+
+        mobileMenu.classList.remove("active");
+
+        overlay.classList.remove("active");
+
+        document.body.classList.remove("menu-open");
+
+    }
+
+}
