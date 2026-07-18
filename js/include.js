@@ -1,8 +1,8 @@
 async function loadNavbar() {
-    const response = await fetch('components/navbar.html');
+    const response = await fetch('navbar.html');
 
     if (!response.ok) {
-        console.error('Failed to load navbar:', response.status);
+        console.error(`Failed to load navbar: ${response.status}`);
         return;
     }
 
