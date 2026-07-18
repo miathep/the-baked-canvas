@@ -393,15 +393,7 @@ body.menu-open {
 }
 
 .quote-form input,
-.quote-form select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    background-image: url("images/chevron-down.png");
-    background-repeat: no-repeat;
-    background-position: right 20px center;
-}
+.quote-form select,
 .quote-form textarea {
 
     width: 100%;
