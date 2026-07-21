@@ -9,6 +9,8 @@ document.head.appendChild(fontLink);
 // Load Navbar
 async function loadNavbar() {
 
+    console.log("Loading navbar...");
+
     const response = await fetch("navbar.html");
 
     if (!response.ok) {
@@ -19,6 +21,8 @@ async function loadNavbar() {
     const html = await response.text();
 
     document.getElementById("navbar").innerHTML = html;
+
+    console.log("Navbar loaded.");
 
     initializeMobileMenu();
     initializeQuoteModal();
@@ -51,9 +55,7 @@ function initializeMobileMenu() {
     document.addEventListener("keydown", (event) => {
 
         if (event.key === "Escape") {
-
             closeMenu();
-
         }
 
     });
@@ -108,9 +110,7 @@ function initializeQuoteModal() {
     quoteOverlay.addEventListener("click", (event) => {
 
         if (event.target === quoteOverlay) {
-
             closeQuoteModal();
-
         }
 
     });
@@ -118,9 +118,7 @@ function initializeQuoteModal() {
     document.addEventListener("keydown", (event) => {
 
         if (event.key === "Escape") {
-
             closeQuoteModal();
-
         }
 
     });
@@ -129,13 +127,28 @@ function initializeQuoteModal() {
 
 function initializeQuoteForm() {
 
+    console.log("initializeQuoteForm() called");
+
     const form = document.getElementById("quote-form");
 
-    if (!form) return;
+    console.log("Quote form found:", form);
+
+    if (!form) {
+        console.error("Quote form not found.");
+        return;
+    }
 
     form.addEventListener("submit", async (event) => {
 
+        console.log("Submit event fired");
+
         event.preventDefault();
+
+        alert("JavaScript intercepted the form!");
+
+        /*
+        The code below is temporarily disabled while we test
+        that the submit handler is being attached correctly.
 
         const submitButton = form.querySelector(".submit-quote");
 
@@ -178,6 +191,7 @@ function initializeQuoteForm() {
 
         submitButton.disabled = false;
         submitButton.textContent = "Request a Quote";
+        */
 
     });
 
