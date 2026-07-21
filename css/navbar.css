@@ -367,7 +367,7 @@ body.menu-open {
     font-family: "Montserrat", sans-serif;
     font-size: 32px;
 
-    color: #4B2E2E;
+    color: #2b2625;
 }
 
 .quote-subtitle {
@@ -381,15 +381,17 @@ body.menu-open {
 .quote-form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 8px;
 }
 
 .quote-form label {
-    font-family: "Manrope", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 2px;
 
-    color: #4B2E2E;
+    color: #2b2625;
 }
 
 .quote-form input,
@@ -438,4 +440,32 @@ body.menu-open {
 
 .submit-quote:hover {
     background: #C67C87;
+}
+
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 180px;
+
+    border: 2px dashed #d8d8d8;
+    border-radius: 18px;
+
+    background: #faf9f7;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.upload-box:hover {
+    border-color: #A3B19B;
+    background: #f6f8f4;
+}
+
+.upload-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
 }

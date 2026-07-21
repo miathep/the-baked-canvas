@@ -22,6 +22,7 @@ async function loadNavbar() {
 
     initializeMobileMenu();
     initializeQuoteModal();
+    initializeQuoteForm();
 
 }
 
@@ -121,6 +122,62 @@ function initializeQuoteModal() {
             closeQuoteModal();
 
         }
+
+    });
+
+}
+
+function initializeQuoteForm() {
+
+    const form = document.getElementById("quote-form");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const submitButton = form.querySelector(".submit-quote");
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        const formData = new FormData(form);
+
+        try {
+
+            const response = await fetch(
+                "https://form-api.mthep97.workers.dev/",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Failed to send.");
+            }
+
+            alert("Your quote request has been sent! I'll be in touch soon.");
+
+            form.reset();
+
+            const status = document.getElementById("upload-status");
+            if (status) status.textContent = "";
+
+            document.querySelector(".quote-overlay").classList.remove("active");
+            document.body.classList.remove("menu-open");
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert("Sorry! Something went wrong. Please try again.");
+
+        }
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Request a Quote";
 
     });
 
