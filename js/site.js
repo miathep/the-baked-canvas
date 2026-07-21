@@ -144,12 +144,6 @@ function initializeQuoteForm() {
 
         event.preventDefault();
 
-        alert("JavaScript intercepted the form!");
-
-        /*
-        The code below is temporarily disabled while we test
-        that the submit handler is being attached correctly.
-
         const submitButton = form.querySelector(".submit-quote");
 
         submitButton.disabled = true;
@@ -167,6 +161,11 @@ function initializeQuoteForm() {
                 }
             );
 
+            console.log("Worker status:", response.status);
+
+            const responseText = await response.text();
+            console.log("Worker response:", responseText);
+
             if (!response.ok) {
                 throw new Error("Failed to send.");
             }
@@ -183,15 +182,16 @@ function initializeQuoteForm() {
 
         } catch (error) {
 
-            console.error(error);
+            console.error("Submission error:", error);
 
             alert("Sorry! Something went wrong. Please try again.");
 
-        }
+        } finally {
 
-        submitButton.disabled = false;
-        submitButton.textContent = "Request a Quote";
-        */
+            submitButton.disabled = false;
+            submitButton.textContent = "Request a Quote";
+
+        }
 
     });
 
