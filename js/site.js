@@ -9,7 +9,7 @@ document.head.appendChild(fontLink);
 // Load Navbar
 async function loadNavbar() {
 
-    const response = await fetch("navbar.html");
+    const response = await fetch("/navbar.html");
 
     if (!response.ok) {
         return;
