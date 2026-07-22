@@ -58,144 +58,180 @@
             &times;
         </button>
 
-        <h2>Request a Quote</h2>
+        <!-- FORM PANEL -->
 
-        <p class="quote-subtitle">
-            Let's start planning something sweet!
-        </p>
+        <div id="quote-form-panel">
 
-        <form
-            id="quote-form"
-            class="quote-form"
-            method="POST"
-            enctype="multipart/form-data"
-            novalidate
+            <h2>Request a Quote</h2>
+
+            <p class="quote-subtitle">
+                Let's start planning something sweet!
+            </p>
+
+            <form
+                id="quote-form"
+                class="quote-form"
+                method="POST"
+                enctype="multipart/form-data"
+                novalidate
+            >
+
+                <label for="name">Name *</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                >
+
+                <label for="email">Email *</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+
+                <label for="event-date">Event Date / Need By *</label>
+
+                <input
+                    type="date"
+                    id="event-date"
+                    name="event-date"
+                    required
+                >
+
+                <label for="order-type">
+                    What would you like? *
+                </label>
+
+                <select
+                    id="order-type"
+                    name="order-type"
+                    required
+                >
+                    <option value="">
+                        Select an option
+                    </option>
+
+                    <option value="Custom Sugar Cookies">
+                        Custom Sugar Cookies
+                    </option>
+
+                    <option value="Cupcakes">
+                        Cupcakes
+                    </option>
+
+                    <option value="Cake">
+                        Cake
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+                <label>
+                    Upload Inspiration Photos
+                </label>
+
+                <label
+                    for="quote-images"
+                    class="upload-box"
+                >
+
+                    <div class="upload-icon">
+                        📷
+                    </div>
+
+                    <div class="upload-title">
+                        Drag &amp; Drop Photos
+                    </div>
+
+                    <div class="upload-subtitle">
+                        or click to browse
+                    </div>
+
+                    <div class="upload-help">
+                        JPG, PNG, HEIC • Up to 10 images
+                    </div>
+
+                    <div
+                        id="upload-status"
+                        class="upload-status"
+                    ></div>
+
+                </label>
+
+                <input
+                    type="file"
+                    id="quote-images"
+                    name="photos"
+                    accept="image/*"
+                    multiple
+                    hidden
+                >
+
+                <label for="description">
+                    Short Description
+                </label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="5"
+                    placeholder="Tell me about your event, theme, colors, quantity, inspiration, or anything you'd like me to know."
+                ></textarea>
+
+                <button
+                    type="submit"
+                    class="submit-quote"
+                >
+                    Request a Quote
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- SUCCESS PANEL -->
+
+        <div
+            id="quote-success-panel"
+            class="quote-success"
+            hidden
         >
 
-            <label for="name">Name *</label>
-
-            <input
-                type="text"
-                id="name"
-                name="name"
-                required
+            <img
+                src="images/Baked-Canvas-Logo.png"
+                alt="The Baked Canvas Logo"
+                class="success-logo"
             >
 
-            <label for="email">Email *</label>
+            <div class="success-check">
+                ✓
+            </div>
 
-            <input
-                type="email"
-                id="email"
-                name="email"
-                required
-            >
+            <h2>Quote Request Received!</h2>
 
-            <label for="event-date">Event Date / Need By *</label>
-
-            <input
-                type="date"
-                id="event-date"
-                name="event-date"
-                required
-            >
-
-            <label for="order-type">
-                What would you like? *
-            </label>
-
-            <select
-                id="order-type"
-                name="order-type"
-                required
-            >
-                <option value="">
-                    Select an option
-                </option>
-
-                <option value="Custom Sugar Cookies">
-                    Custom Sugar Cookies
-                </option>
-
-                <option value="Cupcakes">
-                    Cupcakes
-                </option>
-
-                <option value="Cake">
-                    Cake
-                </option>
-
-                <option value="Other">
-                    Other
-                </option>
-
-            </select>
-
-            <label>
-                Upload Inspiration Photos
-            </label>
-
-            <label
-                for="quote-images"
-                class="upload-box"
-            >
-
-                <div class="upload-icon">
-                    📷
-                </div>
-
-                <div class="upload-title">
-                    Drag &amp; Drop Photos
-                </div>
-
-                <div class="upload-subtitle">
-                    or click to browse
-                </div>
-
-                <div class="upload-help">
-                    JPG, PNG, HEIC • Up to 10 images
-                </div>
-
-                <div
-                    id="upload-status"
-                    class="upload-status"
-                ></div>
-
-            </label>
-
-            <input
-                type="file"
-                id="quote-images"
-                name="photos"
-                accept="image/*"
-                multiple
-                hidden
-            >
-
-            <label for="description">
-                Short Description
-            </label>
-
-            <textarea
-                id="description"
-                name="description"
-                rows="5"
-                placeholder="Tell me about your event, theme, colors, quantity, inspiration, or anything you'd like me to know."
-            ></textarea>
+            <p class="success-message">
+                Thank you for reaching out!
+                <br><br>
+                I'll whip up your quote and be in touch soon.
+            </p>
 
             <button
-                type="submit"
-                class="submit-quote"
+                type="button"
+                class="submit-quote success-close"
             >
-                Request a Quote
+                Close
             </button>
 
-        </form>
+        </div>
 
     </div>
 
-</div>
-
-<div id="success-toast" class="toast">
-    <strong> Quote request received!!</strong>
-    <span>I'll whip up your quote and be in touch soon.</span>
 </div>

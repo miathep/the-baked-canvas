@@ -73,9 +73,38 @@ function initializeQuoteModal() {
     const quoteOverlay = document.querySelector(".quote-overlay");
     const closeButton = document.querySelector(".close-quote");
 
+    const formPanel = document.getElementById("quote-form-panel");
+    const successPanel = document.getElementById("quote-success-panel");
+    const form = document.getElementById("quote-form");
+
+    const uploadStatus = document.getElementById("upload-status");
+    const successClose = document.querySelector(".success-close");
+
     if (!quoteOverlay || !closeButton || quoteButtons.length === 0) return;
 
+    function resetQuoteModal() {
+
+        if (form) {
+            form.reset();
+        }
+
+        if (uploadStatus) {
+            uploadStatus.textContent = "";
+        }
+
+        if (formPanel) {
+            formPanel.hidden = false;
+        }
+
+        if (successPanel) {
+            successPanel.hidden = true;
+        }
+
+    }
+
     function openQuoteModal() {
+
+        resetQuoteModal();
 
         quoteOverlay.classList.add("active");
         document.body.classList.add("menu-open");
@@ -83,6 +112,8 @@ function initializeQuoteModal() {
     }
 
     function closeQuoteModal() {
+
+        resetQuoteModal();
 
         quoteOverlay.classList.remove("active");
         document.body.classList.remove("menu-open");
@@ -101,6 +132,10 @@ function initializeQuoteModal() {
     });
 
     closeButton.addEventListener("click", closeQuoteModal);
+
+    if (successClose) {
+        successClose.addEventListener("click", closeQuoteModal);
+    }
 
     quoteOverlay.addEventListener("click", (event) => {
 
@@ -125,6 +160,9 @@ function initializeQuoteForm() {
     const form = document.getElementById("quote-form");
 
     if (!form) return;
+
+    const formPanel = document.getElementById("quote-form-panel");
+    const successPanel = document.getElementById("quote-success-panel");
 
     form.addEventListener("submit", async (event) => {
 
@@ -154,22 +192,17 @@ function initializeQuoteForm() {
             form.reset();
 
             const status = document.getElementById("upload-status");
-            if (status) status.textContent = "";
+            if (status) {
+                status.textContent = "";
+            }
 
-            document.querySelector(".quote-overlay").classList.remove("active");
-            document.body.classList.remove("menu-open");
+            // Switch from the form to the success screen
+            if (formPanel) {
+                formPanel.hidden = true;
+            }
 
-            // Show success toast
-            const toast = document.getElementById("success-toast");
-
-            if (toast) {
-
-                toast.classList.add("show");
-
-                setTimeout(() => {
-                    toast.classList.remove("show");
-                }, 4000);
-
+            if (successPanel) {
+                successPanel.hidden = false;
             }
 
         } catch (error) {
@@ -185,4 +218,4 @@ function initializeQuoteForm() {
 
     });
 
-}
+}   
