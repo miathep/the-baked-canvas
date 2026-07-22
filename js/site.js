@@ -9,20 +9,15 @@ document.head.appendChild(fontLink);
 // Load Navbar
 async function loadNavbar() {
 
-    console.log("Loading navbar...");
-
     const response = await fetch("navbar.html");
 
     if (!response.ok) {
-        console.error("Navbar failed to load.");
         return;
     }
 
     const html = await response.text();
 
     document.getElementById("navbar").innerHTML = html;
-
-    console.log("Navbar loaded.");
 
     initializeMobileMenu();
     initializeQuoteModal();
@@ -127,20 +122,11 @@ function initializeQuoteModal() {
 
 function initializeQuoteForm() {
 
-    console.log("initializeQuoteForm() called");
-
     const form = document.getElementById("quote-form");
 
-    console.log("Quote form found:", form);
-
-    if (!form) {
-        console.error("Quote form not found.");
-        return;
-    }
+    if (!form) return;
 
     form.addEventListener("submit", async (event) => {
-
-        console.log("Submit event fired");
 
         event.preventDefault();
 
@@ -161,16 +147,9 @@ function initializeQuoteForm() {
                 }
             );
 
-            console.log("Worker status:", response.status);
-
-            const responseText = await response.text();
-            console.log("Worker response:", responseText);
-
             if (!response.ok) {
                 throw new Error("Failed to send.");
             }
-
-            alert("Your quote request has been sent! I'll be in touch soon.");
 
             form.reset();
 
@@ -180,9 +159,20 @@ function initializeQuoteForm() {
             document.querySelector(".quote-overlay").classList.remove("active");
             document.body.classList.remove("menu-open");
 
-        } catch (error) {
+            // Show success toast
+            const toast = document.getElementById("success-toast");
 
-            console.error("Submission error:", error);
+            if (toast) {
+
+                toast.classList.add("show");
+
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 4000);
+
+            }
+
+        } catch (error) {
 
             alert("Sorry! Something went wrong. Please try again.");
 
